@@ -1,15 +1,7 @@
-/*
-//Using console.assertion function
-console.assert(1 === 1)//Prints out nothing because true
-console.assert(1 === 2)//Prints out "Assertion Failed" since its false
-*/
-
 // FUNCTION IMPLEMENTATION
 const assertEqual = function(actual, expected) {
-  console.assert(actual === expected)
-  if (actual === expected){
-    console.log(`✅✅✅ Assertion passed: ${actual} === ${expected}`)
-  }
+  if (actual === expected) return console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
+  if (actual !== expected) return console.log(`🛑🛑🛑 Assertion Failed: ${actual} === ${expected}`);
 };
 
 // TEST CODE
