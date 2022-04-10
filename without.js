@@ -1,47 +1,27 @@
-// eqArrys Function
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
-    return false;
-  } else {
-    for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i]) {
-        return false;
-      }
-    }
-    return true;
-  }
+// FUNCTION COPIED OVER FROM assertArraysEqual.js
+const assertArraysEqual = (actual, expected) => {
+  if (eqArrays(actual, expected)) return console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
+  return console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}`);
 };
 
-// assertArraysEqual Function
-const assertArraysEqual = function(actual, expected) {
-  if (eqArrays(actual, expected)) {
-    return(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    return(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}`);
+// FUNCTION COPIED OVER FROM eqArrays.js
+const eqArrays = (arr1, arr2) => {
+  if (arr1.length !== arr2.length) return false;
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) return false;
   }
+  return true;
 };
+    
 
-// without Function
-const without = function(source, itemsToRemove) {
-  // create new array variable to push correct values. 
-  let newArr = [];
-  // loop through source input
+const without = (source, itemsToRemove) => {
+  let arrayDuplicate = [];
   for (let i = 0; i < source.length; i++) {
-    // remove the correct inputs. 
-    if (itemsToRemove.includes(source[i])) {
-      continue;
-    } else {
-      newArr.push(source[i]); // push items into new array
-    }
+    if (source[i] !== itemsToRemove[i]) arrayDuplicate.push(source[i]);
   }
-  return newArr;
+  return arrayDuplicate;
 };
 
-// test
-const words = ["hello", "world", "lighthouse"];
-console.log(without(words, ["lighthouse"])); // no need to capture return value for this test case
-// Make sure the original array was not altered by the without function
-console.log(assertArraysEqual(words, ["hello", "world", "lighthouse"]));
-
-console.log(without([1,2,3], [1]));
-console.log(without(["1", "2", "3"], [1, 2, "3"]));
+//TEST CODE
+assertArraysEqual(without([1, 2, 3], [1]), [2, 3]); // => [2, 3]
+assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]); // => ["1", "2"]

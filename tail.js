@@ -6,10 +6,10 @@ const assertEqual = function(actual, expected) {
 
 // Create a function that returns the last value in an array
 const tail = (arr) => {
-  return arr.slice(1)
+  return arr.slice(1);
 };
 
-// Test Case: Check the original array 
+// Test Case: Check the original array
 const words = ["Yo Yo", "Lighthouse", "Labs"];
 tail(words); // no need to capture the return value since we are not checking it
 assertEqual(words.length, 3); // original array should still have 3 elements!
