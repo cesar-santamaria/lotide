@@ -14,9 +14,8 @@ const middle = (arr) =>{
     middleValues.push(arr[middleIndex - 1])
   }
   middleValues.push(arr[middleIndex])
-  return parseInt(middleValues)
+  return middleValues
 }
 
-middle([1,2,3,4,5,])
 module.exports = middle;
 
